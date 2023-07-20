@@ -41,6 +41,14 @@ namespace Backend.Controllers
             // Wait for the answer from the method/function before continuing 
             string result = await UploadFile(file);
 
+            // Store the image address in the imageDataModel, so we can save the link to the database
+            ImageDataModel imageDataModel = new ImageDataModel();
+            imageDataModel.Address = result;
+
+            // Save the data in the database
+            _dbcontext.Images.Add(imageDataModel);
+            _dbcontext.SaveChanges();
+
             return Ok(result);
         }
 
