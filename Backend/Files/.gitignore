@@ -1,0 +1,5 @@
+﻿# Don't push the images uploaded to Github so it doesn't take up
+# unnecessary space
+*.jpg
+*.png
+*.jpeg
